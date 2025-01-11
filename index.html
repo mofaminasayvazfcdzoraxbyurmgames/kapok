@@ -14,53 +14,79 @@
         text-align: center;
         font-family: Arial;
         font-size: 20px;
+        margin: 0;
       }
-      .rubtn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            font-family: Arial;
-            border-radius: 5px;
-            padding: 10px 20px;
-            cursor: pointer;
-            font-size: 14px;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-        .rubtn:hover {
-            background-color: #0056b3;
-            color: red;
-        }
-        .otlt p{
-          color: red;
-        }
-        .otlt{
-          text-align:center;
-          background-color: yellow;
-        }
-      .otlt a{
-        color: black;
-        font-family: papyrus;
-        text-decoration: none;
-      }
+      form {
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    label {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      color: #333;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      accent-color: #007bff;
+      cursor: pointer;
+    }
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    button {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+    button:hover:not(:disabled) {
+      background: #0056b3;
+    }
     </style>
   </head>
   <body>
     <div>
-    <button onclick="ru()" class="rubtn">RU</button>
     <h1>Rob<span style="color:red;">A</span><span style="color:blue;">r</span><span style="color:orange;">m</span></h1>
     <h2>From dreams to reality.</h2></div>
-    <div class="otlt">
-      <p>Our 1000 little things</p>
-      <a href="./yoyo.html">Yoyo</a>
-      <a href="./otlt.html">MORE</a>
-    </div>
-    <script>
-      function ru(){
-        window.location.href('indexru.html')
-      };
-    </script>
-  </body>
+    <br><br><br><br><br><br>
+  <form id="consentForm">
+    <label>
+      <input type="checkbox" id="agree" name="agree" required>
+      I have read and agree to the <a href="terms-and-conditions.html">Terms and Conditions</a>.
+    </label>
+    <button type="submit" id="submitBtn" disabled>Submit</button>
+  </form>
+  <script>
+    const checkbox = document.getElementById('agree');
+    const submitBtn = document.getElementById('submitBtn');
+    const form = document.getElementById('consentForm');
+    checkbox.addEventListener('change', () => {
+      submitBtn.disabled = !checkbox.checked;
+    });
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (checkbox.checked) {
+        window.location.href = 'home.html';
+      }
+    });
+  </script>
+</body>
 </html>
