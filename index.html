@@ -22,21 +22,41 @@
             background-color: #007bff;
             color: white;
             border: none;
+            font-family: Arial;
             border-radius: 5px;
             padding: 10px 20px;
             cursor: pointer;
             font-size: 14px;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
         .rubtn:hover {
             background-color: #0056b3;
+            color: red;
         }
+        .otlt p{
+          color: red;
+        }
+        .otlt{
+          text-align:center;
+          background-color: yellow;
+        }
+      .otlt a{
+        color: black;
+        font-family: papyrus;
+        text-decoration: none;
+      }
     </style>
   </head>
   <body>
-    <button onclick="ru()" class="rubtn">
+    <div>
+    <button onclick="ru()" class="rubtn">RU</button>
     <h1>Rob<span style="color:red;">A</span><span style="color:blue;">r</span><span style="color:orange;">m</span></h1>
-    <h2>From dreams to reality.</h2>
+    <h2>From dreams to reality.</h2></div>
+    <div class="otlt">
+      <p>Our 1000 little things</p>
+      <a href="./yoyo.html">Yoyo</a>
+      <a href="./otlt.html">MORE</a>
+    </div>
     <script>
       function ru(){
         window.location.href('indexru.html')
