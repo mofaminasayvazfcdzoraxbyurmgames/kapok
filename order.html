@@ -104,9 +104,10 @@
         <label>
             <input type="text" name="ClientInfo" placeholder="Email or phone number" required>
         </label>
-        <span>Your promocode:</span>
+        
     </div>
            <div class="item">
+               <span>Apply Promocode:</span>
         <label>
             <input type="text" name="Promo" id="promo" placeholder="Your promo" onchange="checkPromo()">
         </label>
@@ -115,7 +116,7 @@
     <button type="submit">Submit Order</button>
 </form>
     
-        <p style="text-align:center;color:red;" id="p"></p></div>
+        <p style="text-align:center;color:red;" id="p">If there is no discount, and you did enter the promo, check if it is correct.</p></div>
 <script>
     const promoCode = "#REMEMBERTHEDATE";
     let total = 0;
@@ -130,9 +131,9 @@
     function checkPromo() {
         const promoInput = document.getElementById('promo').value;
         if (promoInput === promoCode) {
-            total *= 0.85; // Apply 15% discount
+            total *= 0.85; 
         } else {
-            updateTotal(); // Reset total without discount if promo is invalid
+            updateTotal();
         }
         displayTotal();
     }
