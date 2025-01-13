@@ -15,7 +15,6 @@
             align-items: center;
             height: 100vh;
         }
-
         .container {
             background: #ffffff;
             border-radius: 8px;
@@ -24,13 +23,11 @@
             width: 100%;
             padding: 20px;
         }
-
         h1 {
             text-align: center;
             color: #333333;
             margin-bottom: 20px;
         }
-
         .item {
             display: flex;
             justify-content: space-between;
@@ -41,11 +38,9 @@
             border-radius: 4px;
             transition: background-color 0.3s;
         }
-
         .item:hover {
             background-color: #f1f3f5;
         }
-
         label {
             font-size: 16px;
             color: #495057;
@@ -53,12 +48,10 @@
             align-items: center;
             gap: 10px;
         }
-
         input[type="checkbox"] {
             transform: scale(1.2);
             cursor: pointer;
         }
-
         #total {
             font-size: 20px;
             font-weight: bold;
@@ -66,7 +59,6 @@
             text-align: center;
             margin: 20px 0;
         }
-
         button {
             display: block;
             width: 100%;
@@ -88,46 +80,62 @@
 <body>
     <div class="container">
         <h1>Place Order</h1>
-        <form id="orderForm" method="POST" action="https://formspree.io/f/xvgglrbz" target="_blank" >
-            <input type="hidden" name="_redirect" value="https://robarm.netlify.app">
-            <div class="item">
-                <label>
-                    <input type="checkbox" name="Yoyo" value="1.49" onchange="updateTotal()"> Yoyo
-                </label>
-                <span>$1.49</span>
-            </div>
-            <div class="item">
-                <label>
-                    <input type="checkbox" name="RubiksCube" value="2.19" onchange="updateTotal()"> Rubik's Cube
-                </label>
-                <span>$2.19</span>
-            </div>
-            <div class="item">
-              <span>Name:</span>
-                <label>
-                    <input type="text" name="ClientEmail" placeholder="Name" reqiured>
-                </label>
-            </div>
-            <div class="item">
-              <span>Email:</span>
-                <label>
-                    <input type="text" name="ClientEmail" placeholder="Make sure to write the correct email" required>
-                </label>
-            </div>
-            <p id="total">Total: $0</p>
-            <button type="submit">Submit Order</button>
-        </form>
-        
+       <form id="orderForm" method="POST" action="https://formspree.io/f/xvgglrbz">
+    <div class="item">
+        <label>
+            <input type="checkbox" name="Yoyo" value="1.49" onchange="updateTotal()"> Yoyo
+        </label>
+        <span>$1.49</span>
     </div>
-    <script>
-        function updateTotal() {
-            const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
-            let total = 0;
-            checkboxes.forEach(checkbox => {
-                total += parseFloat(checkbox.value);
-            });
-            document.getElementById('total').textContent = `Total: ${total.toFixed(2)}`;
+    <div class="item">
+        <label>
+            <input type="checkbox" name="RubiksCube" value="2.19" onchange="updateTotal()"> Rubik's Cube
+        </label>
+        <span>$2.19</span>
+    </div>
+    <div class="item">
+      <span>Name:</span>
+        <label>
+            <input type="text" name="ClientName" placeholder="Name" required>
+        </label>
+    </div>
+    <div class="item">
+      <span>Contact:</span>
+        <label>
+            <input type="text" name="ClientInfo" placeholder="Email or phone number" required>
+        </label>
+        <span>Your promocode:</span>
+        <label>
+            <input type="text" name="Promo" id="promo" placeholder="Your promo" onchange="checkPromo()">
+        </label>
+    </div>
+    <p id="total">Total: $0.00</p>
+    <button type="submit">Submit Order</button>
+</form>
+        <p style="text-align:center;color:red;>Invalid Promo. Make sure you don&apos;t have any typos.</p>
+<script>
+    const promoCode = "#REMEMBERTHEDATE";
+    let total = 0;
+    function updateTotal() {
+        total = 0;
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+        checkboxes.forEach(checkbox => {
+            total += parseFloat(checkbox.value);
+        });
+        displayTotal();
+    }
+    function checkPromo() {
+        const promoInput = document.getElementById('promo').value;
+        if (promoInput === promoCode) {
+            total *= 0.85; // Apply 15% discount
+        } else {
+            updateTotal(); // Reset total without discount if promo is invalid
         }
-    </script>
+        displayTotal();
+    }
+    function displayTotal() {
+        document.getElementById('total').textContent = `Total: $${total.toFixed(2)}`;
+    }
+</script>
 </body>
 </html>
