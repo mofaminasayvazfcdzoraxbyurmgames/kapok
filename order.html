@@ -105,6 +105,8 @@
             <input type="text" name="ClientInfo" placeholder="Email or phone number" required>
         </label>
         <span>Your promocode:</span>
+    </div>
+           <div class="item">
         <label>
             <input type="text" name="Promo" id="promo" placeholder="Your promo" onchange="checkPromo()">
         </label>
@@ -112,7 +114,9 @@
     <p id="total">Total: $0.00</p>
     <button type="submit">Submit Order</button>
 </form>
-        <p style="text-align:center;color:red;>Invalid Promo. Make sure you don&apos;t have any typos.</p>
+    
+        <p style="text-align:center;color:red;">Invalid Promo. Make sure you don&apos;t have any typos.</p>
+            </div>
 <script>
     const promoCode = "#REMEMBERTHEDATE";
     let total = 0;
