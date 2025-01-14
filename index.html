@@ -1,92 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>
-      RobArm - From dreams to reality
-    </title>
+    <title>Robarm - Login</title>
     <style>
-      h1{
-        text-align: center;
-        font-family: copperplate;
-        font-size: 52px;
-      }
-      h2{
+      body{
         text-align: center;
         font-family: Arial;
-        font-size: 20px;
-        margin: 0;
+        align-items: center;
+        justify-content: center;
       }
-      form {
-      background: #fff;
-      padding: 20px 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      text-align: center;
-    }
-    label {
-      display: flex;
-      align-items: center;
-      font-size: 14px;
-      color: #333;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-    input[type="checkbox"] {
-      width: 20px;
-      height: 20px;
-      accent-color: #007bff;
-      cursor: pointer;
-    }
-    a {
-      color: #007bff;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    button {
-      background: #007bff;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    button:disabled {
-      background: #ccc;
-      cursor: not-allowed;
-    }
-    button:hover:not(:disabled) {
-      background: #0056b3;
-    }
+      h2{
+        font-size: 30px;
+      }
     </style>
   </head>
   <body>
-    <div>
-    <h1>Rob<span style="color:red;">A</span><span style="color:blue;">r</span><span style="color:orange;">m</span></h1>
-    <h2>From dreams to reality.</h2></div>
-    <br><br><br><br><br><br>
-  <form id="consentForm">
-    <label>
-      <input type="checkbox" id="agree" name="agree" required>
-      I have read and agree to the <a href="terms-and-conditions.html">Terms and Conditions</a>.
-    </label>
-    <button type="submit" id="submitBtn" disabled>Submit</button>
-  </form>
-  <script>
-    const checkbox = document.getElementById('agree');
-    const submitBtn = document.getElementById('submitBtn');
-    const form = document.getElementById('consentForm');
-    checkbox.addEventListener('change', () => {
-      submitBtn.disabled = !checkbox.checked;
-    });
-    form.addEventListener('submit', (event) => {
-      event.preventDefault();
-      if (checkbox.checked) {
-        window.location.href = 'home.html';
-      }
-    });
-  </script>
-</body>
+    <h1 style="font-family:copperplate;font-size:52px;">Rob<span style="color:red;">A</span><span style="color:blue;">r</span><span style="color:orange;">m</span></h1>
+    <h2>Login</h2>
+<br><br>
+    <div class="container">
+      <form>
+    <input type="username" placeholder="Username" name="userName">
+  </body>
 </html>
