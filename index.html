@@ -5,13 +5,76 @@
     <style>
       body{
         text-align: center;
-        font-family: Arial;
-        align-items: center;
-        justify-content: center;
       }
       h2{
         font-size: 30px;
       }
+         body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            padding: 20px;
+        }
+
+        .item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #e9ecef;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .item:hover {
+            background-color: #f1f3f5;
+        }
+        label {
+            font-size: 16px;
+            color: #495057;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        input[type="checkbox"] {
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+        #total {
+            font-size: 20px;
+            font-weight: bold;
+            color: #28a745;
+            text-align: center;
+            margin: 20px 0;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px 15px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
     </style>
   </head>
   <body>
@@ -19,7 +82,150 @@
     <h2>Login</h2>
 <br><br>
     <div class="container">
-      <form>
-    <input type="username" placeholder="Username" name="userName">
+       <form id="orderForm" method="POST" action="https://formspree.io/f/xvgglrbz">
+    <div class="item">
+        <label>
+            <input type="checkbox" name="Yoyo" value="1.49" onchange="updateTotal()"> Yoyo
+        </label>
+        <span>$1.49</span>
+    </div>
+    <div class="item">
+        <label>
+            <input type="checkbox" name="RubiksCube" value="2.19" onchange="updateTotal()"> Rubik's Cube
+        </label>
+        <span>$2.19</span>
+    </div>
+    <div class="item">
+      <span>Name:</span>
+        <label>
+            <input type="text" name="ClientName" placeholder="Name" required>
+        </label>
+    </div>
+    <div class="item">
+      <span>Contact:</span>
+        <label>
+            <input type="text" name="ClientInfo" placeholder="Email or phone number" required>
+        </label>
+        
+    </div>
+    <button type="submit">Login</button>
+</form></div>
+      <button onclick="createAcc()">Create Account</button>
   </body>
 </html>
+
+        
+        
+        
+        <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333333;
+            margin-bottom: 20px;
+        }
+        .item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #e9ecef;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .item:hover {
+            background-color: #f1f3f5;
+        }
+        label {
+            font-size: 16px;
+            color: #495057;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        input[type="checkbox"] {
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+        #total {
+            font-size: 20px;
+            font-weight: bold;
+            color: #28a745;
+            text-align: center;
+            margin: 20px 0;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px 15px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Place Order</h1>
+       <form id="orderForm" method="POST" action="https://formspree.io/f/xvgglrbz">
+    <div class="item">
+        <label>
+            <input type="checkbox" name="Yoyo" value="1.49" onchange="updateTotal()"> Yoyo
+        </label>
+        <span>$1.49</span>
+    </div>
+    <div class="item">
+        <label>
+            <input type="checkbox" name="RubiksCube" value="2.19" onchange="updateTotal()"> Rubik's Cube
+        </label>
+        <span>$2.19</span>
+    </div>
+    <div class="item">
+      <span>Name:</span>
+        <label>
+            <input type="text" name="ClientName" placeholder="Name" required>
+        </label>
+    </div>
+    <div class="item">
+      <span>Contact:</span>
+        <label>
+            <input type="text" name="ClientInfo" placeholder="Email or phone number" required>
+        </label>
+        
+    </div>
+           <div class="item">
+               <span>Apply Promocode:</span>
+        <label>
+            <input type="text" name="Promo" id="promo" placeholder="Your promo" onchange="checkPromo()">
+        </label>
+    </div>
+    <p id="total">Total: $0.00</p>
+    <button type="submit">Submit Order</button>
+</form>
+    
